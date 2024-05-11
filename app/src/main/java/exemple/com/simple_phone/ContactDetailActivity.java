@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,6 @@ public class ContactDetailActivity extends AppCompatActivity {
         intent.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
         startActivity(intent);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +79,6 @@ public class ContactDetailActivity extends AppCompatActivity {
                 callContact(contact); // Gọi phương thức callContact() để thực hiện cuộc gọi
             }
         });
-
     }
 
     private void editContact(Contact contact) {
@@ -131,8 +130,6 @@ public class ContactDetailActivity extends AppCompatActivity {
         builder.show();
     }
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -179,6 +176,4 @@ public class ContactDetailActivity extends AppCompatActivity {
         // Hiển thị hộp thoại
         builder.create().show();
     }
-
-
 }

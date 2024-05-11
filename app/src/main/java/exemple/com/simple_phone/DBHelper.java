@@ -15,7 +15,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Tên bảng và các cột'
-
     public static final String TABLE_CONTACTS = "contacts";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
@@ -82,7 +81,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return name;
     }
 
-
     public List<Contact> getAllContacts() {
         List<Contact> contactList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -110,7 +108,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.update(TABLE_CONTACTS, values, COLUMN_ID + " = ?", new String[]{String.valueOf(contact.getId())});
         db.close();
     }
-
 
     public void deleteContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();

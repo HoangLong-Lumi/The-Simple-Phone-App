@@ -21,7 +21,6 @@ public class Contact implements Parcelable {
         this(0, name, phoneNumber);
     }
 
-
     protected Contact(Parcel in) {
         id = in.readLong();
         name = in.readString();

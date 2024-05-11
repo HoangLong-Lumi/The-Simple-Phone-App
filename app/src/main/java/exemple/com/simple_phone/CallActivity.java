@@ -1,7 +1,6 @@
 package exemple.com.simple_phone;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 
-public class CallActivity extends  Activity {
+public class CallActivity extends AppCompatActivity {
 
     private CompositeDisposable disposables = new CompositeDisposable();
     private String number;
@@ -39,7 +40,6 @@ public class CallActivity extends  Activity {
         callInfo = findViewById(R.id.callInfo);
         callInfoNumber = findViewById(R.id.callInfoNumber);
         callInfoState = findViewById(R.id.callInfoState);
-
 
         number = getIntent().getData().getSchemeSpecificPart();
     }
@@ -80,7 +80,7 @@ public class CallActivity extends  Activity {
         // Truy xuất tên người dùng từ cơ sở dữ liệu
         String userName = dbHelper.getContactNameByPhoneNumber(number);
 
-    // Hiển thị thông tin cuộc gọi (số điện thoại và tên người dùng) trên giao diện
+        // Hiển thị thông tin cuộc gọi (số điện thoại và tên người dùng) trên giao diện
         callInfo.setText((userName != null ? "\n" + userName + "" : ""));
         callInfoNumber.setText(number);
         callInfoState.setText(CallStateString.asString(state));
@@ -96,7 +96,6 @@ public class CallActivity extends  Activity {
             hangup.setVisibility(View.GONE);
     }
 
-
     @Override
     public void onStop() {
         super.onStop();
@@ -109,7 +108,4 @@ public class CallActivity extends  Activity {
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setData(call.getDetails().getHandle()));
     }
-
-
-
 }

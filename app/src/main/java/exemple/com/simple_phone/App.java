@@ -1,8 +1,6 @@
 package exemple.com.simple_phone;
 
 import android.app.Application;
-import android.support.v7.app.AppCompatActivity;
-
 
 import timber.log.Timber;
 
